@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChiffreDeVigenereApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Chiffre de Vigenere" Height="400" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="White"
+        Icon="resources/images/iconKey.ico">
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.06*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.06*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.06*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.06*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Алфавит"/>
+
+        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Name="tbInput" TabIndex="1"/>
+        <TextBox Grid.Row="5" Grid.Column="0" Name="tbKey" TabIndex="2" PreviewTextInput="TbInput_PreviewTextInput"/>
+        <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Name="tbOutput" IsReadOnly="True" VerticalAlignment="Stretch" TabIndex="6"/>
+
+        <ComboBox Grid.Row="1" Grid.Column="0" Name="cbAlphabet" IsReadOnly="True" TabIndex="0" VerticalAlignment="Center" SelectionChanged="CbAlphabet_SelectionChanged">
+            <ComboBoxItem Content="Русский" IsSelected="True"/>
+            <ComboBoxItem Content="Английский"/>
+        </ComboBox>
         
+        <!--<Button x:Name="bAbout" Grid.Row="0" Grid.Column="1" Style="{StaticResource LinkButton}" Content="О программе" Click="BAbout_Click"/>-->
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".8*"/>
+                <ColumnDefinition Width=".2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Преобразование" />
+            <Button Grid.Row="0" Grid.Column="1" Content="?" Click="BAbout_Click" 
+                    Style="{StaticResource FlatButtonStyle}" HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center" Padding="10 5 5 5"/>
+        </Grid>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <RadioButton Name="rbEncode" IsChecked="True" Content="Зашифровать" TabIndex="3"/>
+            <RadioButton Name="rbDecode" Content="Расшифровать" TabIndex="4"/>
+        </StackPanel>
+
+        <!--        <CheckBox Grid.Row="2" Grid.Column="2" Name="cbTestMode" Visibility="Visible" Content="TestMode"/>-->
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Текст" />
+        
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Ключ" />
+        
+        
+
+        <Label Grid.Row="6" Grid.Column="0" Content="Результат" />
+        
+
+        <Button x:Name="bTransform" Grid.Row="4" Grid.RowSpan="2" Height="57" Margin="0 10 0 0" VerticalAlignment="Top"  Grid.Column="1" Style="{StaticResource FlatButtonStyle}" Content="ПРЕОБРАЗОВАТЬ" Click="BTransform_Click" TabIndex="5"
+               Foreground="{StaticResource MaastrightBlue}" HorizontalAlignment="Center" Padding="32 20 0 0" Width="170" IsDefault="True"
+></Button>
+
+
     </Grid>
 </Window>
